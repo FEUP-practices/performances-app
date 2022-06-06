@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.3807291666666667" />
+        <entry key="app/src/main/res/drawable-hdpi/format_list_text.xml" value="0.315" />
+        <entry key="app/src/main/res/drawable-hdpi/ticket.xml" value="0.315" />
+        <entry key="app/src/main/res/drawable-hdpi/tune.xml" value="0.186" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22045196533203124" />
+        <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2295" />
+        <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.18518737792968748" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.315" />
+        <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1935" />
+        <entry key="app/src/main/res/drawable/image_style.xml" value="0.3005" />
+        <entry key="app/src/main/res/drawable/input_style.xml" value="0.2295" />
+        <entry key="app/src/main/res/drawable/performance_card_style.xml" value="0.2295" />
+        <entry key="app/src/main/res/drawable/ticket_card_style.xml" value="0.3005" />
+        <entry key="app/src/main/res/drawable/ticket_card_style_down.xml" value="0.229" />
+        <entry key="app/src/main/res/layout-v26/fragment_home.xml" value="0.3747039794921876" />
+        <entry key="app/src/main/res/layout-v28/fragment_home.xml" value="0.297554347826087" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.34626464843750004" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.1772853185595568" />
+        <entry key="app/src/main/res/layout/activity_regiter.xml" value="0.16952573158425832" />
+        <entry key="app/src/main/res/layout/activity_watch_performance.xml" value="0.2553625235764458" />
+        <entry key="app/src/main/res/layout/bottomsheet_fragment_buy_tickets.xml" value="0.41338481064960264" />
+        <entry key="app/src/main/res/layout/bottomsheet_fragment_qr_nfc.xml" value="0.3146459708420708" />
+        <entry key="app/src/main/res/layout/content_register.xml" value="0.27867506828860955" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1734375" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3748992919921875" />
+        <entry key="app/src/main/res/layout/fragment_home_empty.xml" value="0.253567585968165" />
+        <entry key="app/src/main/res/layout/fragment_load.xml" value="0.3915365348069146" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.317596435546875" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.1556508577194753" />
+        <entry key="app/src/main/res/layout/fragment_qr_nfc.xml" value="0.36961575843972705" />
+        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.35760300654783805" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.16952573158425832" />
+        <entry key="app/src/main/res/layout/fragment_tickets.xml" value="0.2904424796311333" />
+        <entry key="app/src/main/res/layout/nav_bar.xml" value="0.144803229061554" />
+        <entry key="app/src/main/res/layout/past_tickets.xml" value="0.41963500976562507" />
+        <entry key="app/src/main/res/layout/performance_card.xml" value="0.453551912568306" />
+        <entry key="app/src/main/res/layout/single_performance.xml" value="0.3097744770857721" />
+        <entry key="app/src/main/res/layout/ticket_visual.xml" value="0.5771704180064309" />
+        <entry key="app/src/main/res/layout/watch_performance.xml" value="0.18424413771856396" />
+        <entry key="app/src/main/res/menu-v26/bottom_nav_menu.xml" value="0.3432073544433095" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.23614654541015628" />
+        <entry key="app/src/main/res/menu/ticket_menu.xml" value="0.32685185185185184" />
+        <entry key="app/src/main/res/xml/network_security_config.xml" value="0.1734375" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1556508577194753" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

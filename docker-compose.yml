@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  tickets-server:
+    container_name: tickets-server
+    restart: always
+    build: tickets-server
+    volumes:
+      - ./tickets-server:/app
+    ports:
+      - "8080:8080"
+    stdin_open: true
+  tickets-image-server:
+    container_name: tickets-images-server
+    restart: always
+    build: tickets-images-server
+    volumes:
+      - ./tickets-images-server:/app
+    ports:
+      - "3500:3500"
+    stdin_open: true
