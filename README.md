@@ -4,80 +4,79 @@
 
 ### tickets-client
 
-
+As the clients app and the validator app are Android applications, they are hard to sctructure and mantain, so it is not as organized as the ticket-server.
 
 ### tickets-server
 
-
+In this case, the hexagonal architeture has been applied in order to make a clean and structurate visualization.
 
 ## Folder structure
 
 ### tickets-client
 
-
-
 ### tickets-server
 
+```
 ├── Dockerfile
 ├── Procfile
 ├── README.md
 ├── app/
-│   └── src/
-│       └── main/
-│           ├── kotlin/
-│           │   └── pt/
-│           │       └── feup/
-│           │           └── performances/
-│           │               ├── Application.kt
-│           │               └── Configuration.kt
-│           └── resources/
-│               ├── application.yaml
-│               └── static/
-│                   ├── index.html
-│                   └── js/
-│                       └── app.js
+│   └── src/
+│       └── main/
+│           ├── kotlin/
+│           │   └── pt/
+│           │       └── feup/
+│           │           └── performances/
+│           │               ├── Application.kt
+│           │               └── Configuration.kt
+│           └── resources/
+│               ├── application.yaml
+│               └── static/
+│                   ├── index.html
+│                   └── js/
+│                       └── app.js
 ├── core/
-│   └── src/
-│       └── main/
-│           └── kotlin/
-│               └── pt/
-│                   └── feup/
-│                       └── performances/
-│                           └── core/
-│                               ├── Domain.kt
-│                               ├── Exceptions.kt
-│                               ├── Ports.kt
-│                               └── usecases/
-│                                   ├── PerformancesUseCase.kt
-│                                   ├── TicketsUseCase.kt
-│                                   └── UsersUseCase.kt
+│   └── src/
+│       └── main/
+│           └── kotlin/
+│               └── pt/
+│                   └── feup/
+│                       └── performances/
+│                           └── core/
+│                               ├── Domain.kt
+│                               ├── Exceptions.kt
+│                               ├── Ports.kt
+│                               └── usecases/
+│                                   ├── PerformancesUseCase.kt
+│                                   ├── TicketsUseCase.kt
+│                                   └── UsersUseCase.kt
 ├── delivery/
-│   └── src/
-│       └── main/
-│           └── kotlin/
-│               └── pt/
-│                   └── feup/
-│                       └── performances/
-│                           └── infrastructure/
-│                               └── delivery/
-│                                   ├── ExceptionHandlers.kt
-│                                   ├── PerformancesController.kt
-│                                   ├── PortsImpl.kt
-│                                   ├── TicketsController.kt
-│                                   ├── UsersController.kt
-│                                   └── middleware/
-│                                       ├── Config.kt
-│                                       └── SecureStore.kt
+│   └── src/
+│       └── main/
+│           └── kotlin/
+│               └── pt/
+│                   └── feup/
+│                       └── performances/
+│                           └── infrastructure/
+│                               └── delivery/
+│                                   ├── ExceptionHandlers.kt
+│                                   ├── PerformancesController.kt
+│                                   ├── PortsImpl.kt
+│                                   ├── TicketsController.kt
+│                                   ├── UsersController.kt
+│                                   └── middleware/
+│                                       ├── Config.kt
+│                                       └── SecureStore.kt
 ├── gradlew*
 ├── gradlew.bat
 ├── repositories/.../infrastructure/repositories/
-│                                   ├── Converters.kt
-│                                   ├── Entities.kt
-│                                   ├── PortsImpl.kt
-│                                   └── Repositories.kt
+│                                   ├── Converters.kt
+│                                   ├── Entities.kt
+│                                   ├── PortsImpl.kt
+│                                   └── Repositories.kt
 ├── settings.gradle.kts
 └── system.properties
-
+```
 
 ## Local deployment
 
@@ -85,10 +84,10 @@ With localhost, we can set up the local tickets-server and the tickets-images-se
 
 **Warning:** The local tickets-server and the local tickets-images-server will be running on docker containers, so the real mobile (which has the tickets-validator installed) will not be able to access them.
 
-````
+```
 > docker-compose build
 > docker-compose up
-````
+```
 
 ## Production deployment
 
@@ -100,7 +99,7 @@ To deploy the tickets-server we have created a [system.properties](tickets-serve
 
 As for the tickets-images-server, it is simply deployed in Heroku without further configuration, by simply running:
 
-````
+```
 > heroku login
 > keroku create
 > git init
@@ -108,7 +107,7 @@ As for the tickets-images-server, it is simply deployed in Heroku without furthe
 > git commit -m "..."
 > git push heroku master
 > heroku open
-````
+```
 
 ## Testing
 
@@ -119,7 +118,7 @@ Acceptance tests to be done manually:
 ### Register a new user
 
 - [ ] Try to register a new user with invalid inputs
-- [ ] Register a new user with valid inputs 
+- [ ] Register a new user with valid inputs
 
 ### Log a user locally
 
@@ -129,14 +128,15 @@ Acceptance tests to be done manually:
 
 ### Load list of performances
 
-- [ ] Load an empty list 
-- [ ] Load a list with some performances 
+- [ ] Load an empty list
+- [ ] Load a list with some performances
 - [ ] Load a list with more than 10 performances to see lazy loading
 - [ ] See that one performance is sold out and try to tap it
 
 ### Buy a ticket
 
 - [ ] Buy a ticket
+- [ ] Reload list of performances and see that the seat number has been updated
 - [ ] See that the ticket have been bought and saved correctly
 - [ ] Try to buy more than 5 tickets of the same performance
 - [ ] See that the ticket have been saved correctly
