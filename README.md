@@ -132,6 +132,7 @@ Acceptance tests to be done manually:
 ### Buy a ticket
 
 - [ ] Buy a ticket
+- [ ] Reload list of performances and see that the seat number has been updated
 - [ ] See that the ticket have been bought and saved correctly
 - [ ] Try to buy more than 5 tickets of the same performance
 - [ ] See that the ticket have been saved correctly
