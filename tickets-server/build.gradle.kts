@@ -10,7 +10,6 @@ plugins {
 }
 
 group = "es.unizar"
-
 version = "0.0.1-SNAPSHOT"
 
 subprojects {
@@ -26,7 +25,9 @@ subprojects {
             jvmTarget = "11"
         }
     }
-    tasks.withType<Test> { useJUnitPlatform() }
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
     dependencies {
         "implementation"("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
@@ -39,7 +40,7 @@ subprojects {
         "implementation"("com.budiyev.android:code-scanner:2.1.0")
         "testImplementation"("org.mockito:mockito-inline:2.13.0")
         "implementation"("io.springfox:springfox-boot-starter:3.0.0")
-        // "implementation"("io.springfox:springfox-swagger-ui:3.0.0")
+        //"implementation"("io.springfox:springfox-swagger-ui:3.0.0")
     }
 }
 
@@ -51,7 +52,9 @@ project(":core") {
         "implementation"("org.springframework.boot:spring-boot-starter-web")
         "implementation"("org.springframework.boot:spring-boot-starter")
     }
-    tasks.getByName<BootJar>("bootJar") { enabled = false }
+    tasks.getByName<BootJar>("bootJar") {
+        enabled = false
+    }
 }
 
 project(":repositories") {
@@ -62,7 +65,9 @@ project(":repositories") {
         "implementation"(project(":core"))
         "implementation"("org.springframework.boot:spring-boot-starter-data-jpa")
     }
-    tasks.getByName<BootJar>("bootJar") { enabled = false }
+    tasks.getByName<BootJar>("bootJar") {
+        enabled = false
+    }
 }
 
 project(":delivery") {
@@ -81,11 +86,13 @@ project(":delivery") {
         "implementation"("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.0")
         "testImplementation"("org.mockito.kotlin:mockito-kotlin:3.2.0")
     }
-    tasks.getByName<BootJar>("bootJar") { enabled = false }
+    tasks.getByName<BootJar>("bootJar") {
+        enabled = false
+    }
 
-    //    tasks.getByName<Jar>("jar") {
-    //        enabled = false
-    //    }
+//    tasks.getByName<Jar>("jar") {
+//        enabled = false
+//    }
 }
 
 project(":app") {
@@ -97,7 +104,7 @@ project(":app") {
         "implementation"(project(":delivery"))
         "implementation"(project(":repositories"))
         "implementation"("org.springframework.boot:spring-boot-starter")
-        "implementation"("org.webjars:bootstrap:3.3.5")
+        "implementation"( "org.webjars:bootstrap:3.3.5")
         "implementation"("org.webjars:jquery:2.1.4")
         "runtimeOnly"("org.hsqldb:hsqldb")
         // https://mvnrepository.com/artifact/com.google.zxing/javase

@@ -1,14 +1,16 @@
 package com.feup.mobilecomputing.tickets_validator.api
 
 import android.content.Context
-import android.util.Log
 import com.android.volley.Request
+import com.android.volley.toolbox.HttpHeaderParser
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.feup.mobilecomputing.tickets_validator.models.ErrorResponseType
 import com.feup.mobilecomputing.tickets_validator.models.QRInfoType
 import com.google.gson.Gson
 import org.json.JSONException
 import org.json.JSONObject
+
 
 interface CallbackAPI<T>{
     fun onSuccess(response: T)
@@ -33,8 +35,7 @@ class TicketsAPI(context: Context) {
                     callbackAPI.onError(e.message)
                 }
             }) { e ->
-            callbackAPI.onError(e.message)
-            e.printStackTrace()
+            callbackAPI.onError(Gson().fromJson(String(e.networkResponse.data), ErrorResponseType::class.java).message)
         }
         //setRestartPolicy(stringRequest)
         requestQueue.add(stringRequest)

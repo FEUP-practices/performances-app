@@ -30,11 +30,6 @@ class MainActivity : Activity() {
         super.onSaveInstanceState(bundle)
     }
 
-    override fun onRestoreInstanceState(bundle: Bundle) {
-        super.onRestoreInstanceState(bundle)
-        tvMessage.text = bundle.getCharSequence("Message")
-    }
-
     private fun scan(qrcode: Boolean) {
         try {
             val intent = Intent(ACTION_SCAN)
@@ -50,13 +45,12 @@ class MainActivity : Activity() {
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
                 val contents = data?.getStringExtra("SCAN_RESULT") ?: ""
-                tvMessage.text = "Format: Message: $contents"
                 TicketsAPI(applicationContext).validateTicket(Gson().fromJson(contents, QRInfoType::class.java), object: CallbackAPI<Boolean> {
                     override fun onSuccess(response: Boolean) {
                         Toast.makeText(applicationContext, "Validated correctly!", Toast.LENGTH_LONG).show()
                     }
                     override fun onError(errorMsg: String?) {
-                        Toast.makeText(applicationContext, "Error validating QR", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, errorMsg ?: "Error validating QR", Toast.LENGTH_LONG).show()
                     }
                 })
             } else {

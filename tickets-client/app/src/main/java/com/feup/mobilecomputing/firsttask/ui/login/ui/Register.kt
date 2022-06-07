@@ -25,6 +25,7 @@ import com.google.android.material.navigation.NavigationView
 
 
 const val ERR_EMPTY_INPUT = "You must fill this field"
+const val ERR_PIN_INPUT = "You must fill it with 4 numbers"
 const val ERR_BAD_DATE_INPUT = "Date must be in MM/YYYY format"
 
 class Register : Fragment() {
@@ -124,6 +125,10 @@ class Register : Fragment() {
         }
         if (!expirationDateText.text.matches(Regex("(0[1-9]|10|11|12)/20[0-9]{2}\$"))) {
             expirationDateText.error = ERR_BAD_DATE_INPUT
+            return false
+        }
+        if (pinText.text.isNullOrEmpty() || pinText.text.length != 4) {
+            pinText.error = ERR_PIN_INPUT
             return false
         }
         return true
