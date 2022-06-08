@@ -17,3 +17,5 @@ class TicketAlreadyExpiredException(private val id: String) : Exception("Ticket 
 class TicketNotVerifiedException() : Exception("Ticket not verified")
 
 class UnauthorizedException() : Exception("Unauthorized")
+
+class InvalidSignatureException() : Exception("Invalid signature")

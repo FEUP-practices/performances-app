@@ -47,6 +47,11 @@ class RestResponseEntityExceptionHandler : ResponseEntityExceptionHandler() {
     @ExceptionHandler(value = [TicketAlreadyExpiredException::class])
     @ResponseStatus(HttpStatus.FORBIDDEN)
     protected fun ticketAlreadyExpired(ex: TicketAlreadyExpiredException) = ErrorMessage(HttpStatus.FORBIDDEN.value(), ex.message)
+
+    @ResponseBody
+    @ExceptionHandler(value = [InvalidSignatureException::class])
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    protected fun invalidSignature(ex: InvalidSignatureException) = ErrorMessage(HttpStatus.UNAUTHORIZED.value(), ex.message)
 }
 
 data class ErrorMessage(

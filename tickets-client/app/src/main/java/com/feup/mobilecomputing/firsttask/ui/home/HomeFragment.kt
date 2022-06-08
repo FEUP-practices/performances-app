@@ -123,7 +123,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
+    override fun onPause() {
         swipeRefreshLayout?.isRefreshing = false
         super.onDestroy()
     }

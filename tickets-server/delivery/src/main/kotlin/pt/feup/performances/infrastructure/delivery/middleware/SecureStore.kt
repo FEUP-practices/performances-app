@@ -1,10 +1,10 @@
 package pt.feup.performances.infrastructure.delivery.middleware
 
 import org.springframework.stereotype.Component
-import pt.feup.performances.core.TicketNotVerifiedException
-import java.security.KeyStore
+import pt.feup.performances.core.InvalidSignatureException
 import java.security.PublicKey
 import java.security.Signature
+import javax.crypto.Cipher
 
 @Component
 class SecureStore {
@@ -17,25 +17,19 @@ class SecureStore {
             return sg.verify(result)
         } catch (e: Exception) {
             e.printStackTrace()
-            throw TicketNotVerifiedException()
+            throw InvalidSignatureException()
         }
     }
 
-    fun signContent(content: ByteArray, pubKey: PublicKey) : ByteArray {
-        if (content.isEmpty()) return ByteArray(0)
+    fun encryptContent(content: ByteArray, pubKey: PublicKey): String {
+        if (content.isEmpty()) throw InvalidSignatureException()
         try {
-            val entry = KeyStore.getInstance(Config.ANDROID_KEYSTORE).run {
-                load(null)
-                getEntry(Config.keyname, null)
-            }
-            val sg = Signature.getInstance(Config.SIGN_ALGO)
-            //sg.initSign(pubKey)
-            sg.update(content)
-            return sg.sign()
-        }
-        catch  (e: Exception) {
+            val cipher = Cipher.getInstance(Config.ENC_ALGO)
+            cipher.init(Cipher.ENCRYPT_MODE, pubKey)
+            return String(cipher.doFinal(content))
+        } catch (e: Exception) {
             e.printStackTrace()
-            throw TicketNotVerifiedException()
+            throw InvalidSignatureException()
         }
     }
 }

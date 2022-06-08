@@ -2,6 +2,9 @@ package com.feup.mobilecomputing.firsttask.ui.home
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.R.*
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.feup.mobilecomputing.firsttask.R
 import com.feup.mobilecomputing.firsttask.models.PerformanceType
@@ -56,7 +60,7 @@ class PerformancesListAdapter(performancesList: Array<PerformanceType>?) : Recyc
         return ViewHolder(view, mListener)
     }
 
-    @SuppressLint("ResourceAsColor")
+    @SuppressLint("ResourceType")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val (id, imageUri, name, price, startDate, endDate, seatsLeft) = pList[position]
         holder.price.text = "${price.toString().replace(".", ",")} €"
@@ -73,10 +77,16 @@ class PerformancesListAdapter(performancesList: Array<PerformanceType>?) : Recyc
         }
         if (seatsLeft <= 0) {
             holder.num.text = "Sold out"
-            holder.price.setTextColor(color.material_grey_850)
-            holder.date.setTextColor(color.material_grey_850)
-            holder.num.setTextColor(color.material_grey_850)
-            holder.title.setTextColor(color.material_grey_850)
+            holder.price.setTextColor(Color.GRAY)
+            holder.date.setTextColor(Color.GRAY)
+            holder.num.setTextColor(Color.GRAY)
+            holder.title.setTextColor(Color.GRAY)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                holder.image.setColorFilter(
+                    Color.argb(0.4F,0.0F,0.0F,0.0F),
+                    PorterDuff.Mode.SRC_OVER
+                )
+            }
         }
     }
 

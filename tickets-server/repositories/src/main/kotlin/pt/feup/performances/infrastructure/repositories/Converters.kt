@@ -58,7 +58,8 @@ fun User.toEntity() = UserEntity(
     cardNumber = cardNumber,
     cardValidity = cardValidity,
     cardCVV = cardCVV,
-    id = null
+    id = null,
+    pubKey = pubKey.toByteArray()
 )
 
 fun UserEntity.toDomain() = User(
@@ -68,5 +69,6 @@ fun UserEntity.toDomain() = User(
     cardNumber = cardNumber,
     cardValidity = cardValidity,
     cardCVV = cardCVV,
-    id = id
+    id = id,
+    pubKey = String(pubKey)
 )

@@ -4,6 +4,7 @@ import android.content.Context
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.feup.mobilecomputing.firsttask.middleware.SecureStore
 import com.feup.mobilecomputing.firsttask.models.BuyPayloadType
 import com.feup.mobilecomputing.firsttask.models.PerformanceType
 import com.feup.mobilecomputing.firsttask.models.SignatureType
@@ -15,6 +16,7 @@ import org.json.JSONObject
 class TicketsAPI(context: Context) {
     private val requestQueue = Volley.newRequestQueue(context)
     private val gson = Gson()
+    //private val API_URL = "http://10.0.2.2:8080/"
     private val API_URL = " https://enigmatic-springs-73519.herokuapp.com/"
 
     fun buyTicket(payload: BuyPayloadType, signature: SignatureType, callbackAPI: CallbackAPI<TicketType>){
@@ -23,8 +25,7 @@ class TicketsAPI(context: Context) {
         jsonObject.accumulate("userId", payload.userId)
         jsonObject.accumulate("performanceId", payload.performanceId)
         jsonObject.accumulate("seatNumber", payload.seatNumber)
-        jsonObject.accumulate("signature", signature.signature)
-        jsonObject.accumulate("challenge", signature.challenge)
+        jsonObject.accumulate("signature", JSONObject(gson.toJson(signature)))
         val stringRequest = JsonObjectRequest(
             Request.Method.POST, "${API_URL}tickets", jsonObject,
             { response ->

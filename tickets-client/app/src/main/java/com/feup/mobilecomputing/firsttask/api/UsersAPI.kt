@@ -4,6 +4,7 @@ import android.content.Context
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.feup.mobilecomputing.firsttask.models.RegisterPayload
 import com.feup.mobilecomputing.firsttask.models.SignatureType
 import com.feup.mobilecomputing.firsttask.models.TicketType
 import com.feup.mobilecomputing.firsttask.models.UserType
@@ -13,19 +14,12 @@ import org.json.JSONObject
 
 class UsersAPI(context: Context) {
     private val requestQueue = Volley.newRequestQueue(context)
-    private val API_URL = " https://enigmatic-springs-73519.herokuapp.com/"
+    //private val API_URL = "http://10.0.2.2:8080/"
+    private val API_URL = "https://enigmatic-springs-73519.herokuapp.com/"
 
-    fun registerUser(user: UserType, signature: SignatureType, pubKey: String , callbackAPI: CallbackAPI<String>){
-        val jsonObject = JSONObject()
-        jsonObject.accumulate("nif", user.nif)
-        jsonObject.accumulate("name", user.name)
-        jsonObject.accumulate("cardNumber", user.cardNumber)
-        jsonObject.accumulate("cardCVV", user.cardCVV)
-        jsonObject.accumulate("cardType", user.cardType)
-        jsonObject.accumulate("cardValidity", user.cardValidity)
-        jsonObject.accumulate("signature", signature.signature)
-        jsonObject.accumulate("challenge", signature.challenge)
-        jsonObject.accumulate("pubKey", pubKey)
+    fun registerUser(payload: RegisterPayload , callbackAPI: CallbackAPI<String>){
+        val jsonObject = JSONObject(Gson().toJson(payload))
+        println(jsonObject)
         val stringRequest = JsonObjectRequest(
             Request.Method.POST, "${API_URL}users", jsonObject,
             { response ->
@@ -39,7 +33,6 @@ class UsersAPI(context: Context) {
             callbackAPI.onError(e.message)
             e.printStackTrace()
         }
-        //setRestartPolicy(stringRequest)
         requestQueue.add(stringRequest)
     }
 }

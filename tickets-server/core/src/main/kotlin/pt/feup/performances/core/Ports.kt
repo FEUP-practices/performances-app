@@ -20,4 +20,5 @@ interface TicketRepositoryService {
 
 interface UserRepositoryService {
     fun save(user: User): String
+    fun findById(id: String): User?
 }

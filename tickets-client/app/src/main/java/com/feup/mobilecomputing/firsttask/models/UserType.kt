@@ -6,5 +6,6 @@ data class UserType (
     val cardType: String,
     val cardNumber: String,
     val cardValidity: String,
-    val cardCVV: String
+    val cardCVV: String,
+    val pubKey: String?
 )

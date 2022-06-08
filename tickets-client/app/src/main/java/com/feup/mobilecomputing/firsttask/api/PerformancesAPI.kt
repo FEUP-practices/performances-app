@@ -16,19 +16,9 @@ interface CallbackAPI<T>{
 
 class PerformancesAPI(context: Context) {
 
-    // Instantiate the cache
-    //val cache = DiskBasedCache(cacheDir, 1024 * 1024) // 1MB cap
-
-    // Set up the network to use HttpURLConnection as the HTTP client.
-//    private val network = BasicNetwork(HurlStack())
-//
-//    // Instantiate the RequestQueue with the cache and network. Start the queue.
-//    private val requestQueue = RequestQueue(null, network).apply {
-//        start()
-//    }
-
     private val requestQueue = Volley.newRequestQueue(context)
     private val gson = Gson()
+    //private val API_URL = "http://10.0.2.2:8080/"
     private val API_URL = " https://enigmatic-springs-73519.herokuapp.com/"
 
     fun fetchAllPerformances(numPage: Int, callbackAPI: CallbackAPI<Array<PerformanceType>>) {

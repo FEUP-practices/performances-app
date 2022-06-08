@@ -18,7 +18,8 @@ class UserEntity(
         val cardType: String,
         val cardNumber: String,
         val cardValidity: String,
-        val cardCVV: String
+        val cardCVV: String,
+        val pubKey: ByteArray,
 )
 
 @Entity
@@ -33,11 +34,11 @@ class TicketEntity(
     var used: Boolean,
     val numberBought: Int,
     @ManyToOne
-        @JoinColumn(name = "user", referencedColumnName = "id")
-        val user: UserEntity,
+    @JoinColumn(name = "user", referencedColumnName = "id")
+    val user: UserEntity,
     @ManyToOne
-        @JoinColumn(name = "performance", referencedColumnName = "id")
-        val performance: PerformanceEntity
+    @JoinColumn(name = "performance", referencedColumnName = "id")
+    val performance: PerformanceEntity,
 )
 
 @Entity

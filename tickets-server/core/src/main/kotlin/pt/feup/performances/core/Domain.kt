@@ -1,8 +1,5 @@
 package pt.feup.performances.core
 
-import java.time.OffsetDateTime
-import java.util.*
-
 data class Performance(
         val id: String?,
         val name: String,
@@ -35,7 +32,8 @@ data class TicketIn(
         val userId: String,
         val performanceId: String,
         val seatNumber: Int,
-        val numberBought: Int
+        val numberBought: Int,
+        val signature: Signature
 )
 
 data class Ticket(
@@ -54,18 +52,11 @@ data class User(
         val cardType: String,
         val cardNumber: String,
         val cardValidity: String,
-        val cardCVV: String
-)
-
-data class UserIn(
-        val nif: String,
-        val name: String,
-        val cardType: String,
-        val cardNumber: String,
-        val cardValidity: String,
         val cardCVV: String,
-        val signature: String,
-        val challenge: String,
         val pubKey: String
 )
 
+data class Signature(
+        val challenge: String,
+        val signature: String,
+)

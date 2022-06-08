@@ -55,4 +55,5 @@ class UserRepositoryServiceImpl (
     private val userRepository: UserEntityRepository
         ) : UserRepositoryService {
     override fun save(user: User): String = userRepository.save(user.toEntity()).toDomain().id!!
+    override fun findById(id: String): User? = userRepository.findById(id).orElse(null)?.toDomain()
 }

@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textViewStyle">@style/TextStyle</item>
     </style>
 
     <style name="Theme.TicketsApp.NoActionBar">
@@ -20,7 +21,7 @@
     </style>
 
     <style name="TextStyle" parent="android:Widget.TextView">
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textColor">#333333</item>
     </style>
 

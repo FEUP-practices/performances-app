@@ -17,6 +17,7 @@ import com.feup.mobilecomputing.firsttask.api.CallbackAPI
 import com.feup.mobilecomputing.firsttask.api.UsersAPI
 import com.feup.mobilecomputing.firsttask.config.Config
 import com.feup.mobilecomputing.firsttask.middleware.SecureStore
+import com.feup.mobilecomputing.firsttask.models.RegisterPayload
 import com.feup.mobilecomputing.firsttask.models.SignatureType
 import com.feup.mobilecomputing.firsttask.models.UserType
 import com.feup.mobilecomputing.firsttask.services.userSrv
@@ -55,17 +56,19 @@ class Register : Fragment() {
         buttonRegister.setOnClickListener {
             if (checkFields()){
                 SecureStore().generateAndStoreKeys(requireContext())
-                UsersAPI(requireContext()).registerUser(UserType(
-                    nif = nifText.text.toString(),
-                    name = nameText.text.toString(),
-                    cardNumber = cardNumberText.text.toString(),
-                    cardCVV = cvvNumberText.text.toString(),
-                    cardValidity = expirationDateText.text.toString(),
-                    cardType = cardType.selectedItem.toString(),
+                UsersAPI(requireContext()).registerUser(
+                    RegisterPayload(UserType(
+                        nif = nifText.text.toString(),
+                        name = nameText.text.toString(),
+                        cardNumber = cardNumberText.text.toString(),
+                        cardCVV = cvvNumberText.text.toString(),
+                        cardValidity = expirationDateText.text.toString(),
+                        cardType = cardType.selectedItem.toString(),
+                        pubKey = Base64.encodeToString(SecureStore().getPubKey().encoded, Base64.DEFAULT)
                 ), SignatureType(
                     challenge = Base64.encodeToString(challenge, Base64.DEFAULT),
                     signature = SecureStore().signContent(challenge) ?: ""
-                ), Base64.encodeToString(SecureStore().getPubKey().encoded, Base64.DEFAULT), object : CallbackAPI<String> {
+                )), object : CallbackAPI<String> {
                     override fun onSuccess(response: String) {
                         userSrv(sp).setUserId(response)
                         userSrv(sp).setPIN(pinText.text.toString())
