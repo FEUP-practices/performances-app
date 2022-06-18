@@ -14,6 +14,64 @@ In this case, the hexagonal architeture has been applied in order to make a clea
 
 ### tickets-client
 
+The usual Android architecture:
+
+```
+.
+├── MainActivity.kt
+├── api
+│   ├── PerformancesAPI.kt
+│   ├── TicketsAPI.kt
+│   └── UsersAPI.kt
+├── config
+│   └── config.kt
+├── db
+│   └── TicketsDBAdapter.kt
+├── middleware
+│   └── SecureStore.kt
+├── models
+│   ├── BuyPayloadType.kt
+│   ├── PerformanceType.kt
+│   ├── QRInfoType.kt
+│   ├── RegisterPayload.kt
+│   ├── SignatureType.kt
+│   ├── TicketInternalType.kt
+│   ├── TicketType.kt
+│   └── UserType.kt
+├── services
+│   ├── qrSrv.kt
+│   ├── ticketSrv.kt
+│   └── userSrv.kt
+└── ui
+    ├── NavBar.kt
+    ├── home
+    │   ├── BuyTicketBottomSheetFragment.kt
+    │   ├── HomeFragment.kt
+    │   ├── HomeViewModel.kt
+    │   ├── PerformancesListAdapter.kt
+    │   └── SinglePerformance.kt
+    ├── login
+    │   └── ui
+    │       ├── Load.kt
+    │       ├── Login.kt
+    │       └── Register.kt
+    ├── settings
+    │   ├── SettingsFragment.kt
+    │   └── SettingsViewModel.kt
+    ├── tickets
+    │   ├── TicketsFragment.kt
+    │   ├── TicketsViewModel.kt
+    │   └── my_tickets
+    │       ├── MyPastTicketsFragment.kt
+    │       ├── MyTicketFragment.kt
+    │       ├── TicketPagerAdapter.kt
+    │       ├── TicketsBottomsheetFragment.kt
+    │       └── TicketsPageTransformer.kt
+    └── utils
+        ├── Biometrics.kt
+        └── functions.kt
+```
+
 ### tickets-server
 
 ```
