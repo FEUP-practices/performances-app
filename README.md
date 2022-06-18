@@ -152,3 +152,9 @@ Acceptance tests to be done manually:
 - [ ] Try to delete a ticket with a date before the current date
 - [ ] Delete a ticket with a date after the current date
 - [ ] See that the ticket has correctly been deleted
+
+## Bugs
+
+- When deleting a stored ticket of the SQLite database the ticket arraylist in the TicketsViewModel has weird behaviours when update state.
+- Some inputs are not completely bounded
+- When a user buys a ticket, the ticket information should be sent back to the user encrypted by the user public key. The problem was that the signed bytes must be at most the same size of the key. The solution is send the ticket information in batches (not implemented)
