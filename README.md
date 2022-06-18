@@ -1,5 +1,16 @@
 # performances-app
 
+## Execution
+
+Just run the tickets-client app two real devices or one real device and one emulator. As the servers are deployed on Heroku they will be ready for any petition.
+
+**Important things to consider**:
+
+- Heroku servers will be asleep, so try to make some http calls in the register screen until it succeeds.
+- There is local biometric authentification in real devices.
+- At first, there won't be any performance in the performance list, so you will have to access this direction: https://enigmatic-springs-73519.herokuapp.com and upload a new performance. In the form, the date inputs are not controlled so you can write absurd dates.
+- The tickets-server and the tickets-image-serve can also be deployed locally through docker-compose but there is no network configuration in order that the real device can find the docker containers ip direction.
+
 ## Architecture
 
 ### tickets-client
